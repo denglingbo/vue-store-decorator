@@ -1,6 +1,6 @@
 {
   "name": "vue-store-decorator",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "vue vuex vuex-modules decorator",
   "main": "lib/index.js",
   "typings": "types/index.d.ts",

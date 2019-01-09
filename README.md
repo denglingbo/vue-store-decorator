@@ -1,4 +1,4 @@
-## store-decorator
+## vue-store-decorator
 
 ### store/modules/demo.ts
 
@@ -9,7 +9,7 @@ import StoreDecorator, {
   Getter,
   AutoLoading,
   AutoErrors,
-} from 'store-decorator';
+} from 'vue-store-decorator';
 
 @StoreDecorator
 @AutoLoading
