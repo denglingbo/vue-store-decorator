@@ -86,20 +86,6 @@ export function Mutation(stateName?: string) {
   };
 }
 
-// /**
-//  * loadings[name] 状态更新
-//  *
-//  * @param context
-//  * @param auto 是否自动更新相应的 loading 状态
-//  * @param name Action function name
-//  * @param value
-//  */
-// function loadingDispatch(context: any, auto: boolean, name: string, value: boolean) {
-//   if (auto) {
-//     context.commit(KEYS.loadingMutation, { name, value });
-//   }
-// }
-
 const defaultActionOptions: DefaultActionOptions = {
   autoLoading: true,
   autoErrors: true,
@@ -157,7 +143,7 @@ export function Action(mutationsFnName?: string | string[], options?: DefaultAct
         // <自动创建 loading mutation>
         // 判断 mutations 上是否存在处理 loadings 的方法
         const hasAutoLoadingMutation: boolean = (target[KEYS.mutations] || []).indexOf(KEYS.loadingMutation) > -1;
-        const autoLoadingDispatch: boolean = opt.autoLoading && hasAutoLoadingMutation;
+        const autoLoadingDispatch: boolean = opt.autoLoading === true && hasAutoLoadingMutation;
         // if <auto loading> state.loadings.$funcName
         if (autoLoadingDispatch) {
           // loadingDispatch(context, opt.autoLoading, name, true);
@@ -168,7 +154,7 @@ export function Action(mutationsFnName?: string | string[], options?: DefaultAct
         // 判断 mutations 上是否存在处理 errors 的方法
         // 如果 store Action 模块中添加过 try catch 且 catch 并未返回 promise.reject 则内部不进行自动处理
         const hasAutoErrorsMutation: boolean = (target[KEYS.mutations] || []).indexOf(KEYS.errorsMutation) > -1;
-        const autoErrorsDispatch: boolean = opt.autoErrors && hasAutoErrorsMutation;
+        const autoErrorsDispatch: boolean = opt.autoErrors === true && hasAutoErrorsMutation;
 
         // if <auto loading> state.loadings.$funcName
         if (autoErrorsDispatch) {

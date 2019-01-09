@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "outDir": "./lib",
+    "target": "es5",
+    "module": "es2015",
+    "strict": true,
+    "removeComments": true,
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "declaration": true,
+    "declarationDir": "./types",
+    "sourceMap": false,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strictPropertyInitialization": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "lib": [
+      "dom",
+      "es5",
+      "es6",
+      "es7",
+      "es2015.promise"
+    ],
+  },
+  "typeRoots" : [
+    "./typings"
+  ],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/demo"
+  ]
+}

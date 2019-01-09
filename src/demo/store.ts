@@ -49,7 +49,7 @@ class Store {
     return name;
   }
 
-  @Action('changeName')
+  @Action('changeName', { autoLoading: false })
   public async fetch(context: any, params: any) {
     const res: any = await mockReq(true);
     return res.data;
