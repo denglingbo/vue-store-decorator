@@ -1,4 +1,4 @@
-## vuex-decorator
+## store-decorator
 
 ### store/modules/demo.ts
 
