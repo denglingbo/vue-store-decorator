@@ -3,7 +3,7 @@
 ### store/modules/demo.ts
 
 ```
-import VuexDecorator, {
+import StoreDecorator, {
   Action,
   Mutation,
   Getter,
@@ -11,7 +11,7 @@ import VuexDecorator, {
   AutoErrors,
 } from 'store-decorator';
 
-@VuexDecorator
+@StoreDecorator
 @AutoLoading
 class Store {
   state() {
