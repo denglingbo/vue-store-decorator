@@ -1,0 +1,8 @@
+.DS_Store
+.idea/
+.vscode/
+*.iml
+npm-debug.log*
+node_modules
+
+# NOTE: when updating this file, be remembered also update `publish.gitignore`
