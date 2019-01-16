@@ -19,12 +19,6 @@ export default function AutoErrors(target: any) {
   const proto = target.prototype;
   const descriptor: any = Object.getOwnPropertyDescriptor(proto, 'state');
 
-  // 创建 state.errors
-  proto.state = (): State => ({
-    errors: {},
-    ...descriptor.value(),
-  });
-
   // 创建映射
   createMapping(proto, KEYS.mutations, KEYS.errorsMutation);
   createMapping(proto, KEYS.getters, 'errors');

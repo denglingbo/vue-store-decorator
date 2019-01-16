@@ -1,5 +1,7 @@
 <template>
   <div>
+    <h1>Hi Demo</h1>
+    <div>info: {{ info }}</div>
     <div>error: {{ errors }}</div>
     <div>loadings: {{ loadings }}</div>
   </div>
@@ -13,6 +15,7 @@ import { Action, State, Getter } from 'vuex-class';
 export default class DemoStore extends Vue {
   @Getter('sotreDecorator/errors') private errors: any;
   @Getter('sotreDecorator/loadings') private loadings: any;
+  @Getter('sotreDecorator/info') private info: any;
   @Action('sotreDecorator/fetch') private fetch: any;
   @Action('sotreDecorator/testError') private testError: any;
 

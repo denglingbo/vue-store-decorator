@@ -1,0 +1,24 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended"],
+  "rules": {
+    "no-consecutive-blank-lines": [true, 2],
+    "quotemark": [true, "single", "jsx-double"],
+    "indent": [true, "spaces", 2],
+    "interface-name": false,
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "variable-name": false,
+    "no-console": [true, "log"],
+    "trailing-comma": [true, { "multiline": "always", "singleline": "never" }],
+    "no-empty-interface": false
+  },
+  "rulesDirectory": [],
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**",
+      "src/demo/**",
+      "src/__tests__/**"
+    ]
+  }
+}

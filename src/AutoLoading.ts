@@ -1,5 +1,6 @@
 import { createMapping } from './util';
 import { KEYS } from './index';
+import { createDecorator } from 'vue-class-component';
 
 interface AutoLoadingPayload {
   name: string;
@@ -17,13 +18,6 @@ interface State {
 
 export default function AutoLoading(target: any) {
   const proto = target.prototype;
-  const descriptor: any = Object.getOwnPropertyDescriptor(proto, 'state');
-
-  // 创建 state.loadings
-  proto.state = (): State => ({
-    loadings: {},
-    ...descriptor.value(),
-  });
 
   // 创建映射
   createMapping(proto, KEYS.mutations, KEYS.loadingMutation);

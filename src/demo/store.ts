@@ -1,31 +1,13 @@
-import VuexDecorator, {
+import StoreDecorator, {
   Action,
   Mutation,
   Getter,
   AutoLoading,
   AutoErrors,
 } from '../index';
+import mockReq from './mockReq';
 
-function mockReq(mockSuccess: boolean, delay: number = 2000) {
-  return new Promise((resolve: any, reject: any) => {
-    setTimeout(() => {
-
-      if (mockSuccess) {
-        resolve({
-          data: {
-            name: 'deo',
-          },
-        });
-      } else {
-        reject({
-          error: 'i\'m error.',
-        });
-      }
-    }, delay);
-  });
-}
-
-@VuexDecorator
+@StoreDecorator
 @AutoLoading
 @AutoErrors
 class Store {
@@ -49,7 +31,7 @@ class Store {
     return name;
   }
 
-  @Action('changeName', { autoLoading: false })
+  @Action('changeName', { autoLoading: true })
   public async fetch(context: any, params: any) {
     const res: any = await mockReq(true);
     return res.data;
@@ -57,9 +39,11 @@ class Store {
 
   @Action()
   public async testError(context: any, params: any) {
-    const res: any = await mockReq(false, 1000);
+    const res: any = await mockReq(true, 1000);
     return res;
   }
 }
 
-export default new Store();
+const store: any = new Store();
+
+export default store;

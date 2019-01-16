@@ -95,17 +95,29 @@ const defaultActionOptions: DefaultActionOptions = {
 
 type CreateType = 'loadings' | 'errors';
 
+/**
+ * 创建 loading or errors 的 state 默认数据节点
+ * @param target target
+ * @param name name
+ * @param type type
+ * @param defValue default value
+ */
 const autoCreator = (target: any, name: string, type: CreateType, defValue: any) => {
-  // const stateDescriptor: PropertyDescriptor = Object.getOwnPropertyDescriptor(target, KEYS.state);
   const stateDescriptor: any = Object.getOwnPropertyDescriptor(target, KEYS.state);
+
+  if (stateDescriptor === undefined) {
+    if (process.env.NODE_ENV !== 'production') {
+      console.error(`[Store-decorator warn]: autoCreator: stateDescriptor null`);
+    }
+    return;
+  }
+
   const state: any = stateDescriptor.value();
 
   stateDescriptor.value = () => {
     const autos = state[type] || {};
-
     autos[name] = defValue;
-
-    return { ...state, [type]: autos };
+    return { [type]: autos, ...state };
   };
 
   Object.defineProperty(target, KEYS.state, stateDescriptor);
@@ -125,12 +137,10 @@ export function Action(mutationsFnName?: string | string[], options?: DefaultAct
     createMapping(target, KEYS.actions, name);
 
     if (opt.autoLoading) {
-      // const stateDescriptor: PropertyDescriptor = Object.getOwnPropertyDescriptor(target, KEYS.state);
       autoCreator(target, name, 'loadings', false);
     }
 
     if (opt.autoErrors) {
-      // const stateDescriptor: PropertyDescriptor = Object.getOwnPropertyDescriptor(target, KEYS.state);
       autoCreator(target, name, 'errors', null);
     }
 
