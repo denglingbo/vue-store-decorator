@@ -119,7 +119,6 @@ export default class App extends Vue {
 
 #### `state 使用函数 return`
 
-### `如果使用 vue-class`
 #### `@Action(param) {string|array}`
 包裹的 Method name 对应 *.vue `Vuex-class: @Action('moduleName/methodName')`
 param 为该 store.ts 中 @Mutation() 包裹的 Method name
@@ -138,7 +137,11 @@ param 为对应的 state 中的 key，此处可以是 `Key` or `Object Path`，�
 对应 .vue `@Getter('moduleName/loadings') loadings: any`
 注意：store.ts 中的 @Action 包裹的 Method name 为 loadings 的 key
 
-### `也可使用默认方式 vuex`
+### `1. 默认方式 vuex`
+
+### `2. vuex-class`
+[vuex-class](https://github.com/ktsn/vuex-class/)
+参照 views/demo.vue 中的写法
 
 
 #### Required packages
