@@ -128,7 +128,5 @@ param 为对应的 state 中的 key，此处可以是 `Key` or `Object Path`，�
 
 
 #### Required packages
-
-* [vuex-class](https://github.com/ktsn/vuex-class/)
 * [vue-class-component](https://github.com/vuejs/vue-class-component/)
 * [vue-property-decorator](https://github.com/kaorun343/vue-property-decorator)
