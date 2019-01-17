@@ -1,6 +1,6 @@
 ## vue-store-decorator
 
-### store/modules/demo.ts
+### store/modules/demo.{ts|js}
 
 ```
 import StoreDecorator, {
@@ -106,25 +106,39 @@ export default class App extends Vue {
 }
 ```
 
+#### `@StoreDecorator return {}`
+```
+{
+  namespaced: true,
+  state: ...,
+  mutations: ...,
+  actions: ...,
+  getters: ...,
+}
+```
+
 #### `state 使用函数 return`
 
+### `如果使用 vue-class`
 #### `@Action(param) {string|array}`
-包裹的 Method name 对应 .vue `Vuex-class: @Action('moduleName/methodName')`
+包裹的 Method name 对应 *.vue `Vuex-class: @Action('moduleName/methodName')`
 param 为该 store.ts 中 @Mutation() 包裹的 Method name
 注意：此处需要 return 一个 Promise
 
 #### `@Mutation(param) {string}`
-包裹的 Method name 对应 .vue `Vuex-class: @Mutation('moduleName/methodName')`
+包裹的 Method name 对应 *.vue `Vuex-class: @Mutation('moduleName/methodName')`
 param 为对应的 state 中的 key，此处可以是 `Key` or `Object Path`，例如: @Mutation('key'), @Mutation('key1.key2')
 注意：此处需要 return 一个结果
 
 #### `@Getter`
-包裹的 Method name 对应 .vue `Vuex-class: @Getter('moduleName/methodName')`
+包裹的 Method name 对应 *.vue `Vuex-class: @Getter('moduleName/methodName')`
 注意：此处需要 return 一个结果
 
 #### `@AutoLoading` 自动为 @Action 创建 loadings 对象
 对应 .vue `@Getter('moduleName/loadings') loadings: any`
 注意：store.ts 中的 @Action 包裹的 Method name 为 loadings 的 key
+
+### `也可使用默认方式 vuex`
 
 
 #### Required packages
