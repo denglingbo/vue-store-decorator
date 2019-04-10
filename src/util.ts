@@ -131,7 +131,7 @@ export function ObjectDeepUpdater(path: string) {
 
         property = Object.getOwnPropertyDescriptor(obj, key);
         setter = property && property.set ? property.set : null;
-        console.log(property, obj, key, setter)
+
         obj = obj[key];
       });
 
